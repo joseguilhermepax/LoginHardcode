@@ -13,14 +13,15 @@ import app.loginhardcode.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public static final String TAG            = MainActivity.class.getSimpleName();
+    public static final int CHECAR_LOGIN_CODE = 99;
     public static final String KEY_USUARIO    = "usuario";
     public static final String KEY_SENHA      = "senha";
-    public static final int CHECAR_LOGIN_CODE = 99;
+    public static final String TAG            = MainActivity.class.getSimpleName();
 
     private EditText usuarioEditText;
     private EditText senhaEditText;
-    private Button loginButton;
+    private Button   loginButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+
         if(view == loginButton){
             verificaDados();
         }
@@ -59,14 +61,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Cria um Bundle com os argumentos necessários na outra activity
             Bundle args = new Bundle();
 
-            // Os dados são inseridos no bundle como um objeto do tipo Map (chave, valor)
+            // Dados inseridos no bundle (chave, valor)
             args.putInt(KEY_USUARIO, usuario);
             args.putInt(KEY_SENHA, senha);
 
             // Cria a intenção de abrir uma nova tela
             Intent intent = new Intent(this, VerificaLogin.class);
+
             //Inclui os argumentos na intenção
             intent.putExtras(args);
+
             //Solicita a abertura da nova activity
             //Contudo essa activity receberá informação como resultado
             startActivityForResult(intent, CHECAR_LOGIN_CODE);
