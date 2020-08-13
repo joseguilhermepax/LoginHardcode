@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LoginHardcode</string>
+    <string name="usu_rio">Usuário</string>
+    <string name="n_meros_do_prontu_rio">Números do prontuário</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
 </resources>
